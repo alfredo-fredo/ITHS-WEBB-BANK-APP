@@ -1,10 +1,10 @@
-### BANK APP
+# BANK APP
 
 
-## AFTER DOWNLOADING THE PROJECT FROM
+# AFTER DOWNLOADING THE PROJECT FROM
 https://github.com/alfredo-fredo/ITHS-WEBB-BANK-APP.git
 
-## INSTALL THIS PACKAGES IN THE TERMINAL:
+INSTALL THIS PACKAGES IN THE TERMINAL:
 # cd ITHS-WEBB-BANK-APP-master/frontend
 npm install
 npm install -g @vue/cli
@@ -15,12 +15,12 @@ npm i cors
 npm i sqlite sqlite3
 npm i express
 
-## TO RUN THE PROJECT :
-# cd ITHS-WEBB-BANK-APP-master/frontend
+# TO RUN THE PROJECT :
+cd ITHS-WEBB-BANK-APP-master/frontend
 paste this link in your browser :
 http://localhost:8082
 
-## cd ITHS-WEBB-BANK-APP-master/backend
+cd ITHS-WEBB-BANK-APP-master/backend
 paste this link in your browser :
 http://localhost:3000/
 
@@ -30,7 +30,7 @@ http://localhost:3000/
 BANKDB
 # backend/db/BANKDB.sqlite
 
-## USERS TABLE
+# USERS TABLE
 UserID PK INT
 FName TEXT
 LName TEXT
@@ -38,17 +38,17 @@ PassportNo TEXT
 AccountNo NUMERIC
 Balance REAL
 
-## HISTORY TABLE
+# HISTORY TABLE
 OperationID PK INT
 SenderID FK NUMERIC
 ReciverID FK NUMERIC
 Amount REAL
 
-## Where to find Backend Code:
+# Where to find Backend Code:
 backend/index.js
 
-## Example how to Select the bank USERS :
-# in Backend :(in index.js)
+# Example how to Select the bank USERS :
+in Backend :(in index.js)
 
 app.get('/users', (request, response) => {
     database_.all('SELECT * from USERS')
@@ -63,13 +63,13 @@ app.get('/users', (request, response) => {
         })
 })
 
-# in Browser :
+in Browser :
 http://localhost:3000/users
 
 so app.get('/users' means http://localhost:3000/users
 so app.get('/history' means http://localhost:3000/history
 
-# in Frontend :
+in Frontend :
 
 <template>
     <div>
