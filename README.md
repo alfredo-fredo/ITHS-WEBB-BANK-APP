@@ -48,7 +48,7 @@ Amount REAL
 backend/index.js
 
 # Example how to Select the bank USERS :
-in Backend :(in index.js)
+# in Backend :(in index.js)
 
 app.get('/users', (request, response) => {
     database_.all('SELECT * from USERS')
@@ -63,13 +63,13 @@ app.get('/users', (request, response) => {
         })
 })
 
-in Browser :
+# in Browser :
 http://localhost:3000/users
 
 so app.get('/users' means http://localhost:3000/users
 so app.get('/history' means http://localhost:3000/history
 
-in Frontend : (Edit Readm.emd to get the full code)
+# in Frontend : (Edit Readm.emd to get the full code)
 
 <template>
     <div>
