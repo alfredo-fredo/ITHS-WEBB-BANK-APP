@@ -1,34 +1,33 @@
-##### BANK APP
+### BANK APP
 
 
-AFTER DOWNLOADING THE PROJECT FROM
-## https://github.com/alfredo-fredo/ITHS-WEBB-BANK-APP.git
+## AFTER DOWNLOADING THE PROJECT FROM
+https://github.com/alfredo-fredo/ITHS-WEBB-BANK-APP.git
 
-# INSTALL THIS PACKAGES IN THE TERMINAL:
-## cd ITHS-WEBB-BANK-APP-master/frontend
-# npm install
-# npm install -g @vue/cli
-# npm i cors
+## INSTALL THIS PACKAGES IN THE TERMINAL:
+# cd ITHS-WEBB-BANK-APP-master/frontend
+npm install
+npm install -g @vue/cli
+npm i cors
 
-## cd ITHS-WEBB-BANK-APP-master/frontend
-# npm i cors
-# npm i sqlite sqlite3
-# npm i express
+# cd ITHS-WEBB-BANK-APP-master/frontend
+npm i cors
+npm i sqlite sqlite3
+npm i express
 
-### TO RUN THE PROJECT :
-
-## cd ITHS-WEBB-BANK-APP-master/frontend
-# paste this link in your browser :
-### http://localhost:8082
+## TO RUN THE PROJECT :
+# cd ITHS-WEBB-BANK-APP-master/frontend
+paste this link in your browser :
+http://localhost:8082
 
 ## cd ITHS-WEBB-BANK-APP-master/backend
-# paste this link in your browser :
-### http://localhost:3000/
+paste this link in your browser :
+http://localhost:3000/
 
 
 
 # Database Name
-## BANKDB
+BANKDB
 # backend/db/BANKDB.sqlite
 
 ## USERS TABLE
@@ -46,7 +45,7 @@ ReciverID FK NUMERIC
 Amount REAL
 
 ## Where to find Backend Code:
-# backend/index.js
+backend/index.js
 
 ## Example how to Select the bank USERS :
 # in Backend :(in index.js)
