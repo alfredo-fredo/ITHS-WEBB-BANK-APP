@@ -69,7 +69,7 @@ http://localhost:3000/users
 so app.get('/users' means http://localhost:3000/users
 so app.get('/history' means http://localhost:3000/history
 
-in Frontend :
+in Frontend : (Edit Readm.emd to get the full code)
 
 <template>
     <div>
