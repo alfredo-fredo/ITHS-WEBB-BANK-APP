@@ -13,7 +13,7 @@ app.use(cors(), express.json(), fileUpload(), express.static('assets'))
 let database_
 
 sqlite
-    .open({driver: sqlite3.Database, filename: './db/BANKDB.sqlite'})
+    .open({ driver: sqlite3.Database, filename: './db/BANKAPP.sqlite' })
     .then(database => {
         database_ = database
     })
@@ -35,7 +35,7 @@ app.get('/users', (request, response) => {
         })
         .catch((error) => {
             console.log('Error while fetching USERS')
-            return response.status(401).send({message: error}
+            return response.status(401).send({ message: error }
             )
         })
 })
@@ -50,7 +50,7 @@ app.get('/history', (request, response) => {
         })
         .catch((error) => {
             console.log('Error while fetching transactions HISTORY')
-            return response.status(401).send({message: error}
+            return response.status(401).send({ message: error }
             )
         })
 })
@@ -62,11 +62,11 @@ app.post('/users', (request, response) => {
         [request.body.Fname, request.body.Lname, request.body.PassportNo, request.body.AccountNo, request.body.Balance])
         .then(() => {
             console.log('USER ADDED')
-            return response.status(201).send({status: 1, message: 'USER ADDED'})
+            return response.status(201).send({ status: 1, message: 'USER ADDED' })
         })
         .catch(() => {
             console.log()
-            return response.status(401).send({status: -1, message: 'Error while adding new USER'})
+            return response.status(401).send({ status: -1, message: 'Error while adding new USER' })
         })
 })
 
@@ -76,11 +76,11 @@ app.post('/operation', (request, response) => {
         [request.body.SenderID, request.body.ReciverID, request.body.Amount])
         .then(() => {
             console.log('TRANSACTION ADDED')
-            return response.status(201).send({status: 1, message: 'TRANSACTION ADDED'})
+            return response.status(201).send({ status: 1, message: 'TRANSACTION ADDED' })
         })
         .catch(() => {
             console.log()
-            return response.status(401).send({status: -1, message: 'Error while adding new TRANSACTION'})
+            return response.status(401).send({ status: -1, message: 'Error while adding new TRANSACTION' })
         })
 })
 
