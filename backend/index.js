@@ -43,7 +43,7 @@ app.get('/users', (request, response) => {
 
 
 app.get('/history', (request, response) => {
-    database_.all('SELECT  from HISTORY')
+    database_.all('SELECT * from HISTORY')
         .then((rows) => {
             console.log('Fetching All Operations HISTORY')
             return response.status(201).send(rows)
