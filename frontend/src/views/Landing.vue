@@ -1,7 +1,7 @@
 <template>
   <div id="wrapper" class="my-purple">
       <h1>Landing page</h1>
-  
+      <router-link to="/transfer">Transfer</router-link>
   </div>
 </template>
 
