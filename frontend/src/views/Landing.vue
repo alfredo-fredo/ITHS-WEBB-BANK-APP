@@ -11,39 +11,39 @@
       </li>
     </ul>
 
-    <router-link to="/transfer">Transfer</router-link>
+    <router-link to="/transfer"><h4 class="link">Transfer</h4></router-link>
   </div>
 </template>
 
 <script>
 export default {
-  name: "users",
-  data() {
+  name: 'users',
+  data () {
     return {
-      users: [],
-    };
+      users: []
+    }
   },
-  beforeMount() {
-    this.fetchBankUsers();
-    this.setTitle();
+  beforeMount () {
+    this.fetchBankUsers()
+    this.setTitle()
   },
   methods: {
-    fetchBankUsers() {
-      fetch("http://localhost:3000/users")
+    fetchBankUsers () {
+      fetch('http://localhost:3000/users')
         .then((response) => response.json())
         .then((result) => {
-          this.users = result;
-          console.log(result);
+          this.users = result
+          console.log(result)
         })
         .catch(() => {
-          console.log({ message: -1 });
-        });
+          console.log({ message: -1 })
+        })
     },
-    setTitle() {
-      document.title = "Bank Users";
-    },
-  },
-};
+    setTitle () {
+      document.title = 'Bank Users'
+    }
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -53,6 +53,20 @@ export default {
   color: whitesmoke;
   width: 100%;
   height: 100%;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 1rem;
+}
+
+.link {
+  text-decoration: underline;
+  color: whitesmoke;
 }
 
 .my-white {

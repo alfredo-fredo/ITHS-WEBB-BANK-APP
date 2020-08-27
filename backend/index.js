@@ -73,7 +73,7 @@ app.post('/users', (request, response) => {
 
 app.post('/operation', (request, response) => {
     database_.run('INSERT INTO HISTORY (SenderID, ReciverID, Amount) VALUES (?,?,?)',
-        [request.body.SenderID, request.body.ReciverID, request.body.Amount])
+        [request.body.senderID, request.body.receiverID, request.body.amount])
         .then(() => {
             console.log('TRANSACTION ADDED')
             return response.status(201).send({ status: 1, message: 'TRANSACTION ADDED' })
@@ -82,6 +82,18 @@ app.post('/operation', (request, response) => {
             console.log()
             return response.status(401).send({ status: -1, message: 'Error while adding new TRANSACTION' })
         })
+})
+
+app.post('/updateBalance', (request, response) => {
+    //sending balance from senderID to receiverID.
+    let sender = request.body.senderID
+    let receiver = request.body.receiverID
+    let amount = request.body.amount
+
+    /* Query to check if senderID exists in DB, 
+    if it does check if senderID's balance is more than amount.
+    If so, add amount to the receiverID's balance. If receiverID exist in DB. */
+    database_.query('SELECT USERS WHERE')
 })
 
 

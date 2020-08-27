@@ -10,13 +10,13 @@ const state = {
 }
 
 const mutations = { // https://vuex.vuejs.org/guide/mutations.html
-  setUserID(state, payload) {
+  setUserID (state, payload) {
     state.userID = payload
   },
-  setFirstName(state, payload) {
+  setFirstName (state, payload) {
     state.firstName = payload
   },
-  setLastName(state, payload) {
+  setLastName (state, payload) {
     state.lastName = payload
   }
 }

@@ -2,15 +2,13 @@
   <div id="wrapper">
     <h2>Från</h2>
     <div id="user">
-      <select class="form-control">
-        <option>Från</option>
+      <select v-model="transaction.senderID" class="form-control">
         <option v-for="user in users" :value="user.AccountNo" :key="user.userID">{{ user.Fname }}</option>
       </select>
     </div>
     <h2>Till</h2>
     <div id="user">
-      <select class="form-control">
-        <option>Till</option>
+      <select v-model="transaction.receiverID" class="form-control">
         <option
           v-for="user in users"
           :value="user.AccountNo"
@@ -19,8 +17,13 @@
       </select>
     </div>
 
+    <div>
+      <h2>Belopp</h2>
+      <input type="number" v-model="transaction.amount" placeholder=" -">
+    </div>
+
     <div id="button">
-      <button>Send</button>
+      <button @click="addToDBHistory">Send</button>
     </div>
 
     <div id="router">
@@ -31,36 +34,60 @@
 
 <script>
 export default {
-  name: "users",
-  data() {
+  name: 'users',
+  data () {
     return {
       users: [],
-    };
+      transaction: {
+        senderID: null,
+        receiverID: null,
+        amount: null
+      }
+    }
   },
-  beforeMount() {
-    this.fetchBankUsers();
-    this.setTitle();
+  beforeMount () {
+    this.fetchBankUsers()
+    this.setTitle()
   },
   methods: {
-    fetchBankUsers() {
-      fetch("http://localhost:3000/users")
+    addToDBHistory () { // So far only history post call is done. This method will include an actual transaction call later.
+      fetch('http://localhost:3000/operation', {
+        method: 'POST',
+        body: this.transaction
+      })
         .then((response) => response.json())
         .then((result) => {
-          this.users = result;
-          console.log(result);
+          if (result.ok) {
+            alert('Transaction successfully completed. \n \n ' + this.transaction.amount + ' SEK sent to ID: ' + this.transaction.receiverID)
+          } else {
+            alert('Sorry, transaction failed.')
+          }
+          console.log(result)
         })
         .catch(() => {
-          console.log({ message: -1 });
-        });
+          alert('Something went wrong..')
+          console.log({ message: -1 })
+        })
     },
-    setTitle() {
-      document.title = "Bank Users";
+    fetchBankUsers () {
+      fetch('http://localhost:3000/users')
+        .then((response) => response.json())
+        .then((result) => {
+          this.users = result
+          console.log(result)
+        })
+        .catch(() => {
+          console.log({ message: -1 })
+        })
     },
-  },
-};
+    setTitle () {
+      document.title = 'Bank Users'
+    }
+  }
+}
 </script>
 
-<!-- 
+<!--
 <script>
 export default {
   data() {
@@ -68,7 +95,7 @@ export default {
       transaction: {
         senderID: this.$store.state.userID, // getting userID from store/index.js store. Might be null.
         receiverID: null,
-        balance: null,
+        amount: null,
         timeStamp: "",
         personalMessage: "",
       },
@@ -80,12 +107,12 @@ export default {
 <style scoped>
 #wrapper {
   background-color: #533a71;
-  color: black;
+  color: whitesmoke;
 }
 
 .form-control {
   list-style-type: none;
-  color: black;
+  color: whitesmoke;
   padding-bottom: 2em;
 }
 #button {
